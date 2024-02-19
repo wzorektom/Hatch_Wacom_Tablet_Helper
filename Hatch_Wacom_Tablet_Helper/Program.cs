@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Wilcom_Hatch_Wacom_Tablet_Helper
 {
@@ -23,7 +22,7 @@ namespace Wilcom_Hatch_Wacom_Tablet_Helper
         private static Keys toggleMouseButtonKey;
         private static Keys simulateRightClickKey;
         private static Keys simulateEnterKey;
-        private static Keys simulateBackspaceKey; // Variable for Backspace simulation
+        private static Keys simulateBackspaceKey; 
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
         public static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint cButtons, uint dwExtraInfo);
@@ -153,8 +152,8 @@ namespace Wilcom_Hatch_Wacom_Tablet_Helper
 
         private static void SimulateBackspaceKeyPress()
         {
-            keybd_event((byte)Keys.Back, 0, 0, 0); // Simulate Backspace key press
-            keybd_event((byte)Keys.Back, 0, KEYEVENTF_KEYUP, 0); // Simulate Backspace key release
+            keybd_event((byte)Keys.Back, 0, 0, 0); 
+            keybd_event((byte)Keys.Back, 0, KEYEVENTF_KEYUP, 0); 
             Console.WriteLine("Simulated Backspace key press");
         }
 
@@ -167,8 +166,8 @@ namespace Wilcom_Hatch_Wacom_Tablet_Helper
 
         private static void SimulateEnterKeyPress()
         {
-            keybd_event((byte)Keys.Return, 0, 0, 0); // Simulate Enter key press
-            keybd_event((byte)Keys.Return, 0, KEYEVENTF_KEYUP, 0); // Simulate Enter key release
+            keybd_event((byte)Keys.Return, 0, 0, 0); 
+            keybd_event((byte)Keys.Return, 0, KEYEVENTF_KEYUP, 0); 
             Console.WriteLine("Simulated Enter key press");
         }
     }
