@@ -49,31 +49,34 @@ namespace Wilcom_Hatch_Wacom_Tablet_Helper
 
         public static void Main()
         {
-            Console.WriteLine(new string('=', 80));
-            Console.WriteLine("Welcome to the Wilcom Hatch Wacom Tablet Helper App!");
-            Console.WriteLine("Visit mollypawsup.com if you like to say hi!");
-            Console.WriteLine(new string('=', 80));
-            Console.WriteLine("\nThis helper app enhances your experience with the Wilcom Hatch Digitizing software\nby allowing you to use a Wacom standard or Intuos tablet more effectively.\nSpecifically, it overrides Hatch default functionality where a left or right mouse click is required to register either a corner or curved point.");
-            Console.WriteLine("With this app, you can simulate a left mouse click using your tablet pen\nwith the Freehand tool in Hatch, making digitizing more intuitive and efficient.\n");
-            Console.WriteLine("By simulating the mouse right click, you can use your table pen to register the curved corners by simply pressing the assigned key.\n");
-            Console.WriteLine("Please follow the prompts to configure the app according to your needs.\nYou can skip any step by pressing Enter if you do not wish to use that particular functionality during this session.\n");
-            Console.WriteLine(new string('=', 80));
-
-            Console.WriteLine("Press the key you want to use for toggling the left mouse button (press Enter to skip):");
+            Console.WriteLine(new string('-', 80));
+            Console.WriteLine("Welcome to the Wilcom Hatch Wacom Tablet Helper!");
+            Console.WriteLine("Enhancing your digitizing experience with precision and ease.");
+            Console.WriteLine("For feedback or queries, visit: https://github.com/wzorektom/Hatch_Wacom_Tablet_Helper");
+            Console.WriteLine(new string('-', 80));
+            Console.WriteLine("\nThis utility tool is designed to seamlessly integrate your Wacom tablet with Wilcom Hatch Digitizing software.\nIt allows for a more intuitive use of your tablet by enabling custom key bindings to\nsimulate mouse and keyboard actions, thereby streamlining your digitizing workflow.");
+            Console.WriteLine("\nFeatures include:");
+            Console.WriteLine("- Simulate left mouse click with your tablet pen for precise digitizing.");
+            Console.WriteLine("- Assign keys to simulate right-clicks, Enter, and Backspace for creating curves, applying stitch\nand backtracking the the point placed in the design.");
+            Console.WriteLine("\nGetting Started:");
+            Console.WriteLine("Follow the on-screen prompts to customize the app's behavior to match your workflow.\nYou can skip any step by pressing Enter if you prefer not to use that functionality.\n\n");
+            Console.WriteLine(new string('-', 80));
+            
+            Console.WriteLine("To begin, press the key you want to assign for toggling the left mouse button (press Enter to skip):");
             toggleMouseButtonKey = ReadKeyOrDefault();
 
-            Console.WriteLine("Press the key you want to use for simulating a right click (press Enter to skip):");
+            Console.WriteLine("Next, press the key for simulating a right-click action (press Enter to skip):");
             simulateRightClickKey = ReadKeyOrDefault();
 
-            Console.WriteLine("Press the key you want to use for simulating an Enter press (press Enter to skip):");
+            Console.WriteLine("Choose a key for simulating an Enter press (press Enter to skip):");
             simulateEnterKey = ReadKeyOrDefault();
 
-            Console.WriteLine("Press the key you want to use for simulating a Backspace press (press Enter to skip):");
+            Console.WriteLine("Finally, select a key for simulating a Backspace action (press Enter to skip):");
             simulateBackspaceKey = ReadKeyOrDefault();
 
             _hookID = SetHook(_proc);
-            Console.WriteLine("Configuration complete. Close this window with your mouse to terminate the app.");
-            System.Windows.Forms.Application.Run();
+            Console.WriteLine("Setup complete. You're all set to enhance your digitizing experience! Close this window with your mouse to exit the app.");
+            Application.Run();
             UnhookWindowsHookEx(_hookID);
         }
 
